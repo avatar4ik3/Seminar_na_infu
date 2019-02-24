@@ -3,9 +3,12 @@
 
 class matr {
     private:
+		// Den genii i mi nihuya ne ponimaem
         unsigned row,col;
         int **body;
 		int swap(unsigned index);//меняет index и index - 1 строки местами воот 
+		int keys();
+		int *key;
     public:
         matr();
         matr(unsigned, unsigned); //создание
