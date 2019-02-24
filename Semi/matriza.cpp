@@ -1,3 +1,4 @@
+#include"pch.h"
 #include"matriza.h"
 #include<iostream>
 
@@ -127,7 +128,7 @@ int matr::keys() {
 	for (int i = 0; i < row; i++) {
 		for (int j = 0; j < col; j++) {
 			if (body[j] > 0) {
-				counter++
+				counter++;
 			}
 			else {
 				max_length = counter;
