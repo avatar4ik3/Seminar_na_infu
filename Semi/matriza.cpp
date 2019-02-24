@@ -4,7 +4,7 @@
 int matr::swap(unsigned index) //меняет index и index - 1 строки местами
 {
 	if (body == NULL)return 1;
-	unsigned *tmp;
+	int *tmp;
 	tmp = body[index];
 	body[index] = body[index - 1];
 	body[index - 1] = tmp;
@@ -15,16 +15,15 @@ int matr::swap(unsigned index) //меняет index и index - 1 строки м
 matr::matr(){   //создание матрицы СПЦФК: создаёт нулевую матрицу (тест на корректноть класса)
     col = 0;
     row = 0;
-    err = 0;
     body = NULL;
 }
 
 matr::matr(unsigned n1, unsigned m1){   // создание конкретной матрицы СПФКЦ: НА ВХОД - размеры матрицы
     col = n1;                             //                                    здаёт матрицу конкретных размеров
     row = m1;
-    body = new unsigned* [row];
+    body = new int* [row];
     for(unsigned i = 0; i<row; i++){
-        body[i] = new unsigned [col];
+        body[i] = new int [col];
     }
     if(body == NULL){
         bad_matr(1);
@@ -35,7 +34,6 @@ matr::matr(unsigned n1, unsigned m1){   // создание конкретной
             }
         }
     }
-    err = 0;
 }
 
 matr::matr(const matr& sr){                             // копирование матрицы СПЦФК: на вход - другая матрицы
@@ -44,9 +42,9 @@ matr::matr(const matr& sr){                             // копировани�
     if(sr.body == 0){
         bad_matr(1);
     }   else{
-        body = new unsigned*[row];
+        body = new int*[row];
         for(unsigned  i = 0; i<row; i++){
-            body[i] = new unsigned [col];
+            body[i] = new int [col];
         }
         if(body == 0){
             bad_matr(1);
@@ -57,66 +55,62 @@ matr::matr(const matr& sr){                             // копировани�
             }
         }
     }
-    err = 0;
 }
 
-void matr::chel_matr(unsigned  i, unsigned  j, unsigned  elem){                  //СПЦФК: НА ВХОД  - номер столбца и строки и елемент
-    if(body == 0 || col == 0 || row == 0 || err != 0){                //       Заменяет определённый элемент в матрице
-    bad_matr(3);
+int matr::chel_matr(unsigned  i, unsigned  j, int  elem){                  //СПЦФК: НА ВХОД  - номер столбца и строки и елемент
+    if(body == NULL){                //       Заменяет определённый элемент в матрице
+		return 1;
     } else{
     body[j][i] = elem;
     }
+	return 0;
 }
 
-void matr::back_matr(unsigned  i, unsigned  j, unsigned  &elem){                      //СПЦФК: НА ВХОД - номер столбца и строки и елемент
-    if(body == 0 || col == 0 || row == 0 || err != 0){
-    bad_matr(4);
+int matr::back_matr(unsigned  i, unsigned  j, int  &elem){    //СПЦФК: НА ВХОД - номер столбца и строки и елемент
+    if(body == NULL){
+		return 1;
     } else{
     elem = body[j][i];
     }
+	return 0;
 }
 
-void matr::print_stolb(unsigned  &l){                               //СПЦФК: НА ВХОД - матрица и столбец
-    if(body == 0 || col == 0 || row == 0 || err != 0){          //       выводит столбец
-    bad_matr(4);
+
+
+int matr::print_stolb(unsigned  &l){                               //СПЦФК: НА ВХОД - матрица и столбец
+    if(body == NULL){          //       выводит столбец
+		return 1;
     } else{
         l=row;
     }
+	return 0;
 }
 
 
-void matr::print_strok(unsigned  &l){
-    if(body == 0 || col == 0 || row == 0 || err != 0){
-    bad_matr(4);
+int matr::print_strok(unsigned  &l){
+    if(body == NULL){
+		return 1;
     } else{
         l=col;
     }
+	return 0;
 }
 
-
-void matr::bad_matr(unsigned  err){                                                  //завершает программу при ошибке
-    if(err == 1){
-    std::cout << "Ошибка выделения памяти!" << std::endl;
-    } else{
-        if(err == 2){
-        std::cout << "Ошибка вывода столбца/строки!" << std::endl;
-        } else{
-            if(err == 3){
-            std::cout <<"Ошибка замены элемента!" << std::endl;
-            } else{
-                if(err == 4){
-                std::cout << "Ошибка возврата элемента!" << std::endl;
-                }
-            }
-        }
-    }
-    exit(1);
-}
 
 int matr::shake_sort()
 {
 	if (body == NULL)return 1;
-
+	unsigned left = 1, right = row - 1;
+	while (left <= right) {
+		for (unsigned i = right; i >= left; ++i) {
+			if ()
+		}
+		left++;
+		for (unsigned i = left; i <= right; --i) {
+			if ()
+		}
+		right--;
+	}
 	return 0;
 }
 
