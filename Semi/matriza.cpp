@@ -118,13 +118,21 @@ matr::~matr(){
 }
 
 int matr::keys() {
-	
+	max_length = 0;
+	counter = 0;
 	if (body == NULL) {
 		return 1;
 	}
 	for (int i = 0; i < row; i++) {
 		for (int j = 0; j < col; j++) {
-			
+			if (body[j] > 0) {
+				counter++
+			}
+			else {
+				max_length = counter;
+				counter = 0;
+			}
 		}
+		key[i] = max_length;
 	}
 }
