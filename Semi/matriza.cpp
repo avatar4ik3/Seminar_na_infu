@@ -25,9 +25,7 @@ matr::matr(unsigned n1, unsigned m1){   // создание конкретной
     for(unsigned i = 0; i<row; i++){
         body[i] = new int [col];
     }
-    if(body == NULL){
-        bad_matr(1);
-    } else{
+    if(body != NULL){
         for(unsigned  i = 0; i<row; i++){
             for(unsigned  ii = 0; ii<col; ii++){
                 body[row][col] = 0;
@@ -39,16 +37,12 @@ matr::matr(unsigned n1, unsigned m1){   // создание конкретной
 matr::matr(const matr& sr){                             // копирование матрицы СПЦФК: на вход - другая матрицы
     col = sr.col;                                           //                            создаёт копию исходной матрицы
     row = sr.row;
-    if(sr.body == 0){
-        bad_matr(1);
-    }   else{
+    if(sr.body != NULL){
         body = new int*[row];
         for(unsigned  i = 0; i<row; i++){
             body[i] = new int [col];
         }
-        if(body == 0){
-            bad_matr(1);
-        } else{
+        if(body != NULL){
             for(unsigned  i = 0; i<row; i++){
                 for(unsigned  ii = 0; i<col; i++)
                     body[i][ii] = sr.body[i][ii];
