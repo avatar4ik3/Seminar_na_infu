@@ -96,12 +96,12 @@ int matr::shake_sort()
 	if (body == NULL)return 1;
 	unsigned left = 1, right = row - 1;
 	while (left <= right) {
-		for (unsigned i = right; i >= left; ++i) {
-			if ()
+		for (unsigned i = right; i >= left; --i) {
+			if (key[i - 1] <= key[i])swap(i);
 		}
 		left++;
-		for (unsigned i = left; i <= right; --i) {
-			if ()
+		for (unsigned i = left; i <= right; ++i) {
+			if (key[i - 1] <= key[i])swap(i);
 		}
 		right--;
 	}
