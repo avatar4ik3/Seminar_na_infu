@@ -94,6 +94,7 @@ int matr::print_strok(unsigned  &l){
 int matr::shake_sort()
 {
 	if (body == NULL)return 1;
+	keys();
 	unsigned left = 1, right = row - 1;
 	while (left <= right) {
 		for (unsigned i = right; i >= left; --i) {
@@ -118,8 +119,8 @@ matr::~matr(){
 }
 
 int matr::keys() {
-	max_length = 0;
-	counter = 0;
+	int max_length = 0;
+	int counter = 0;
 	if (body == NULL) {
 		return 1;
 	}
