@@ -6,6 +6,7 @@ class matr {
         unsigned m,n;
         unsigned **body;
         unsigned err;
+		int keys();
     public:
         matr();
         matr(unsigned, unsigned); //создание

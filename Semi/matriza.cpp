@@ -111,3 +111,6 @@ matr::~matr(){
     }
 }
 
+int matr::keys() {
+	for (int i)
+}
