@@ -124,6 +124,7 @@ matr::~matr(){
 }
 
 int matr::keys() {
+	
 	if (body == NULL) {
 		return 1;
 	}
