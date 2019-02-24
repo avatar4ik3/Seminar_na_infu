@@ -116,7 +116,17 @@ void matr::bad_matr(unsigned  err){                                             
 int matr::shake_sort()
 {
 	if (body == NULL)return 1;
-
+	unsigned left = 1, right = row - 1;
+	while (left <= right) {
+		for (unsigned i = right; i >= left; ++i) {
+			if ()
+		}
+		left++;
+		for (unsigned i = left; i <= right; --i) {
+			if ()
+		}
+		right--;
+	}
 	return 0;
 }
 
