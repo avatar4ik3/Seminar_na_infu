@@ -5,7 +5,7 @@ class matr {
     private:
         unsigned row,col;
         int **body;
-        unsigned err;
+		int swap(unsigned index);//меняет index и index - 1 строки местами
     public:
         matr();
         matr(unsigned, unsigned); //создание
