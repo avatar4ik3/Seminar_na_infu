@@ -135,13 +135,14 @@ int matr::keys() {
 				counter++;
 			}
 			else {
-				max_length = counter;
+				if(counter > max_length)max_length = counter;
 				counter = 0;
 			}
 		}
-		if (counter)max_length = counter;
+		if (counter > max_length)max_length = counter;
 		key[i] = max_length;
 		counter = 0;
+		max_length = 0;
 	}
 	return 0;
 }

@@ -21,21 +21,25 @@ void array_fill_rand(int **arr, int str, int col) {
 
 int main()
 {
-	int **arr = new int*[3];
-	for (int i = 0; i < 3; ++i)arr[i] = new int[3];
-	array_fill_rand(arr, 3, 3);
-	matr mtr(arr, 3, 3);
-	for (int i = 0; i < 3; ++i) {
-		for (int j = 0; j < 3; ++j) {
+	int row = 4, col = 4;
+	int **arr = new int*[row];
+	for (int i = 0; i < row; ++i)arr[i] = new int[col];
+	array_fill_rand(arr, row, col);
+	matr mtr(arr, row, col);
+	for (int i = 0; i < row; ++i) {
+		for (int j = 0; j < col; ++j) {
 			int a = mtr.back_matr(i, j);
 			cout <<a << " ";
 		}
 		cout << endl;
 	}
-	mtr.shake_sort();
+	if (mtr.shake_sort()) {
+		cout << "err"; 
+		return 0;
+	}
 	cout << endl;
-	for (int i = 0; i < 3; ++i) {
-		for (int j = 0; j < 3; ++j) {
+	for (int i = 0; i < row; ++i) {
+		for (int j = 0; j < col; ++j) {
 			int a = mtr.back_matr(i, j);
 			cout << a << " ";
 		}
