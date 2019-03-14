@@ -8,15 +8,17 @@ class matr {
         int **body;
 		int swap(unsigned index);//меняет index и index - 1 строки местами воот 
 		int keys();
-		int *key;
+		void keys_int();
+		int *key ;
     public:
         matr();
         matr(unsigned, unsigned); //создание
         matr(const matr& sr);     //копирование
+		matr(int **arr, unsigned input_row, unsigned input_col); // копирование массива
         ~matr();                  //уничтожение
 // то что писали андрей и максим,а денис и никита привели в удобный для них вид
         int chel_matr(unsigned i, unsigned j, int elem);    //ввод элемента на определённую позицию
-        int back_matr(unsigned i, unsigned j, int &elem);   //вывод изменения на определённую позицую
+        unsigned back_matr(unsigned i, unsigned j);   //вывод изменения на определённую позицую
 
         int print_stolb(unsigned &l);//вывод столбца НЕ РЕАЛИЗОВАНА
         int print_strok(unsigned &l);//вывод строки

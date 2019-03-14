@@ -9,7 +9,6 @@ int matr::swap(unsigned index) //меняет index и index - 1 строки м
 	tmp = body[index];
 	body[index] = body[index - 1];
 	body[index - 1] = tmp;
-	delete[]tmp;
 	return 0;
 }
 
@@ -29,7 +28,7 @@ matr::matr(unsigned n1, unsigned m1){   // создание конкретной
     if(body != NULL){
         for(unsigned  i = 0; i<row; i++){
             for(unsigned  ii = 0; ii<col; ii++){
-                body[row][col] = 0;
+                body[i][ii] = 0;
             }
         }
     }
@@ -52,6 +51,14 @@ matr::matr(const matr& sr){                             // копировани�
     }
 }
 
+matr::matr(int **arr, unsigned input_row, unsigned input_col)
+{
+	//для тестов
+	this->body = arr;
+	this->row = input_row;
+	this->col = input_col;
+}
+
 int matr::chel_matr(unsigned  i, unsigned  j, int  elem){                  //СПЦФК: НА ВХОД  - номер столбца и строки и елемент
     if(body == NULL){                //       Заменяет определённый элемент в матрице
 		return 1;
@@ -61,13 +68,8 @@ int matr::chel_matr(unsigned  i, unsigned  j, int  elem){                  //С�
 	return 0;
 }
 
-int matr::back_matr(unsigned  i, unsigned  j, int  &elem){    //СПЦФК: НА ВХОД - номер столбца и строки и елемент
-    if(body == NULL){
-		return 1;
-    } else{
-    elem = body[j][i];
-    }
-	return 0;
+unsigned matr::back_matr(unsigned  i, unsigned  j){    //СПЦФК: НА ВХОД - номер столбца и строки и елемент
+    return body[i][j];
 }
 
 
@@ -111,15 +113,17 @@ int matr::shake_sort()
 }
 
 matr::~matr(){                          
-    if(body != 0){                      
+    if(body != NULL){                      
         for(unsigned  i = 0; i<row; i++){
             delete[] body[i];
         }
         delete[] body;
     }
+	if (key != NULL)delete[]key;
 }
 
 int matr::keys() {
+	keys_int();
 	int max_length = 0;
 	int counter = 0;
 	if (body == NULL) {
@@ -127,7 +131,7 @@ int matr::keys() {
 	}
 	for (int i = 0; i < row; i++) {
 		for (int j = 0; j < col; j++) {
-			if (body[j] > 0) {
+			if (body[i][j] > 0) {
 				counter++;
 			}
 			else {
@@ -135,6 +139,18 @@ int matr::keys() {
 				counter = 0;
 			}
 		}
+		if (counter)max_length = counter;
 		key[i] = max_length;
+		counter = 0;
+	}
+	return 0;
+}
+
+void matr::keys_int()
+{
+	if (row) {
+		if (key != NULL)delete[]key;
+		key = new int[row];
+		for (int i = 0; i < row; ++i)key[i] = 0;
 	}
 }
