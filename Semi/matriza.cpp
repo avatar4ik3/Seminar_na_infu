@@ -9,6 +9,10 @@ int matr::swap(unsigned index) //меняет index и index - 1 строки м
 	tmp = body[index];
 	body[index] = body[index - 1];
 	body[index - 1] = tmp;
+	int tmp1;
+	tmp1 = key[index];
+	key[index] = key[index - 1];
+	key[index - 1] = tmp1;
 	return 0;
 }
 
